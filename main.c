@@ -92,11 +92,14 @@ int main()
             p=p1;
         }
         if(p0)
+        {
+            free(p0->first);
+            p0->first=NULL;
+            free (p0->last);
+            p0->last=NULL;
             free(p0);
-        free(p0->first);
-        p0->first=NULL;
-        free (p0->last);
-        p0->last=NULL;
+            p0=NULL;
+        }
     }
     if ((choice==1)&&(df))
     {
@@ -243,7 +246,7 @@ int main()
         }
         else
             printf ("There aren't any matching values!");
-        //î÷èñòêà ñïèñêà, ãîëîâû è äîïîëíèòåëüíîãî óêàçàòåëÿ
+        //Ã®Ã·Ã¨Ã±Ã²ÃªÃ  Ã±Ã¯Ã¨Ã±ÃªÃ , Ã£Ã®Ã«Ã®Ã¢Ã» Ã¨ Ã¤Ã®Ã¯Ã®Ã«Ã­Ã¨Ã²Ã¥Ã«Ã¼Ã­Ã®Ã£Ã® Ã³ÃªÃ Ã§Ã Ã²Ã¥Ã«Ã¿
         g=p0->first;
         while(g!=NULL)
         {
@@ -258,7 +261,7 @@ int main()
     if ((choice==2)&&(df))
     {
         p0=MakeHead();
-        g1=CreateNode2(df); /* ñîçäàíèå ýëåìåíòà ñïèñêà */
+        g1=CreateNode2(df); /* Ã±Ã®Ã§Ã¤Ã Ã­Ã¨Ã¥ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã  Ã±Ã¯Ã¨Ã±ÃªÃ  */
         AddFirst2(p0,g1);
         g=p0->first;
         for (i=0; i<(n-2); i++)
@@ -293,7 +296,7 @@ int main()
             g=g->next;
         }
         while(g!=p0->first);
-//î÷èñòêà ñïèñêà, ãîëîâû è äîïîëíèòåëüíîãî óêàçàòåëÿ
+//Ã®Ã·Ã¨Ã±Ã²ÃªÃ  Ã±Ã¯Ã¨Ã±ÃªÃ , Ã£Ã®Ã«Ã®Ã¢Ã» Ã¨ Ã¤Ã®Ã¯Ã®Ã«Ã­Ã¨Ã²Ã¥Ã«Ã¼Ã­Ã®Ã£Ã® Ã³ÃªÃ Ã§Ã Ã²Ã¥Ã«Ã¿
         g=p0->first;
         g=g->next;
         while(g->prev!=p0->last)
